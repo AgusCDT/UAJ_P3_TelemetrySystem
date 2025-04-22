@@ -1,0 +1,17 @@
+{
+    "name": "com.g08.game_telemetry",
+    "version": "1.0.0",
+    "displayName": "Telemetry System",
+    "description": "Nuestro sistema de telemeria para UAJ",
+    "unity": "2022.3",
+    "repository": { 
+        "type": "git",
+        "url": "https://github.com/AgusCDT/UAJ_P3_TelemetrySystem.git",
+        "directory": "src/game_telemetry"
+    },
+    "author": "G08",
+    "category": "Utility",
+    "dependencies": {},
+    "type": "tool"
+  }
+  
