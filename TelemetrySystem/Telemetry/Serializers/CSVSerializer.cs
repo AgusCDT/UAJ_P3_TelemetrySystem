@@ -5,7 +5,7 @@ using System.Linq;
 namespace Telemetry {
     // Serializar en CSV
     public class CsvSerializer : Serializer {
-        public string Serialize(TelemetryEvent t_event) {
+        public string Serialize(Event t_event) {
             var type = t_event.GetType();
             var baseType = type.BaseType;
 

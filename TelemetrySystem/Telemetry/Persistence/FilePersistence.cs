@@ -3,11 +3,11 @@ using System.IO;
 namespace Telemetry {
     // Persistencia de los eventos en un archivo
     class FilePersistence : Persistence {        
-        protected ISerializer serializer;
+        protected Serializer serializer;
         string fileName;
 
         // Guarda una ruta para crear en la carpeta de telemetria (GameName_SessionID.[json/csv/bin])
-        public FilePersistence(ISerializer serializer_) {
+        public FilePersistence(Serializer serializer_) : base(serializer_){
             serializer = serializer_;
             if (!Directory.Exists(Telemetry.Instance.Directory))
                 Directory.CreateDirectory(Telemetry.Instance.Directory);
@@ -16,7 +16,7 @@ namespace Telemetry {
 
         // Persiste el evento enviado
         // Escribe el evento en la ruta guardada
-        public override void Save(TelemetryEvent t_event) {
+        public override void Save(Event t_event) {
             using (StreamWriter streamWriter = new StreamWriter(fileName, true)) {
                 string serialisedEvent = serializer.Serialize(t_event);
                 streamWriter.WriteLine(serialisedEvent);

@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Telemetry {
     // Serializar en binario
     public class BinarySerializer : Serializer {
-        public string Serialize(TelemetryEvent t_event) {
+        public string Serialize(Event t_event) {
             #pragma warning disable SYSLIB0011
             var formatter = new BinaryFormatter();
             #pragma warning restore SYSLIB0011
