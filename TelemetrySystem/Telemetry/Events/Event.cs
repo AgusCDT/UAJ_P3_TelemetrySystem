@@ -2,8 +2,14 @@
 
 namespace Telemetry
 {
+    /// <summary>
+    /// Clase padre para todos los eventos
+    /// </summary>
     [System.Serializable]
     public class Event {
+        /// <summary>
+        /// Tipos de eventos
+        /// </summary>
         public enum ID_Event
         { UNDEFINED, SESSION_START, SESSION_END, LEVEL_START, LEVEL_PAUSE, LEVEL_RESUME, LEVEL_END, 
             ATTACK, DAMAGE_RECIEVED, DEATH, INTERACTION };

@@ -1,7 +1,9 @@
 using Newtonsoft.Json;
 
 namespace Telemetry {
-    // Serializar en JSON
+    /// <summary>
+    /// Serialización en JSON
+    /// </summary>
     public class JsonSerializer : Serializer {
         public string Serialize(Event t_event){
             JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings();

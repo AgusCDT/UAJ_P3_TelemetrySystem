@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
 
 namespace Telemetry {
+    /// <summary>
+    /// Evento cuando el jugador inmteractua con objetos
+    /// </summary>
     [System.Serializable]
     public class InteractionEvent : Event {
         [JsonProperty(Order = 4)] public string ID_Interactuable { get; private set; }

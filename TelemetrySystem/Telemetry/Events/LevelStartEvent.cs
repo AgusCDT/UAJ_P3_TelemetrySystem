@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
 
 namespace Telemetry {
+    /// <summary>
+    /// Evento cuando el jugador empieza un nivel
+    /// </summary>
     [System.Serializable]
     public class LevelStartEvent : Event {
         [JsonProperty(Order = 4)] public int ID_Level { get; private set; }

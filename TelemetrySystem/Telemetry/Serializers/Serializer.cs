@@ -1,8 +1,12 @@
 namespace Telemetry { 
     public interface Serializer {
-        // Serializa un evento al formato correspondiente
+        /// <summary>
+        /// Serializa un evento al formato correspondiente
+        /// </summary>
         public string Serialize(Event t_event);
-        // Extension del archivo en funcion del tipo de serializacion
+        /// <summary>
+        /// Extension del archivo en funcion del tipo de serializacion
+        /// </summary>
         public string Extension();
     }
 }

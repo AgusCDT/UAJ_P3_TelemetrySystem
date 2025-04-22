@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
 
 namespace Telemetry {
+    /// <summary>
+    /// Evento cuando el jugador recibe daño
+    /// </summary>
     [System.Serializable]
     public class DamageReceivedEvent : Event {
         [JsonProperty(Order = 4)] public string ID_Entity { get; private set; }
