@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-namespace Telemetry
-{
-    public class Telemetry
-    {
+namespace Telemetry {
+    public class Telemetry {
         private static Telemetry? instance;
 
         /// <summary>
@@ -50,10 +48,8 @@ namespace Telemetry
         /// <param name="gameName_">Game name used to be used across the telemetry</param>
         /// <param name="sessionId_">Session ID to be used across the telemetry</param>
         /// <returns>true if correctly initialized</returns>
-        public static bool Init(string directory_, string gameName_, long sessionId_)
-        {
-            if (instance != null)
-            {
+        public static bool Init(string directory_, string gameName_, long sessionId_) {
+            if (instance != null) {
                 System.Console.WriteLine("Ya has inicializado la instancia.");
                 return false;
             }
@@ -67,8 +63,7 @@ namespace Telemetry
         /// Releases the telemetry instance.
         /// Requires previous call to the Init() function.
         /// </summary>
-        public static void Release()
-        {
+        public static void Release() {
             instance.TelemetryStop();
             instance = null;
         }
@@ -77,18 +72,15 @@ namespace Telemetry
         /// Stores the event to track
         /// </summary>
         /// <param name="t_event"></param>
-        public void TrackEvent(Event t_event)
-        {
+        public void TrackEvent(Event t_event) {
             eventQueue.Enqueue(t_event);
         }
 
         /// <summary>
         /// Telemetry thread
         /// </summary>
-        private void Run()
-        {
-            while (runningThread)
-            {
+        private void Run() {
+            while (runningThread) {
                 Persist();
                 Thread.Sleep(ThreadDelay);
             }
@@ -98,11 +90,9 @@ namespace Telemetry
         /// <summary>
         /// Persists to all the persistences in the telemetry.
         /// </summary>
-        private void Persist()
-        {
+        private void Persist() {
             Event? t_event;
-            while (eventQueue.TryDequeue(out t_event))
-            {
+            while (eventQueue.TryDequeue(out t_event)) {
                 foreach (Persistence persistence in persistences)
                     persistence.Save(t_event);
             }
@@ -111,8 +101,7 @@ namespace Telemetry
         /// <summary>
         /// Private method to start the instance
         /// </summary>
-        private void TelemetrySetup(string directory_, string gameName_, long sessionId_)
-        {
+        private void TelemetrySetup(string directory_, string gameName_, long sessionId_) {
             Directory = directory_;
             GameName = gameName_;
             SessionID = sessionId_;
@@ -133,12 +122,10 @@ namespace Telemetry
         /// <summary>
         /// Private method to stop the instance
         /// </summary>
-        private void TelemetryStop()
-        {
+        private void TelemetryStop() {
             runningThread = false;
             eventQueue.Enqueue(new SessionEndEvent(Event.ID_Event.SESSION_END));
             telemetryThread.Join();
         }
     }
 }
-
