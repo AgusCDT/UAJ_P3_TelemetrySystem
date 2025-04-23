@@ -52,7 +52,7 @@ namespace Telemetry {
                 System.Console.WriteLine("Ya has inicializado la instancia.");
                 return false;
             }
-            sessionId_ = Guid.NewGuid().ToString();
+            string sessionId_ = Guid.NewGuid().ToString();
             instance = new Telemetry();
             instance.TelemetrySetup(directory_, gameName_, sessionId_);
             return true;
